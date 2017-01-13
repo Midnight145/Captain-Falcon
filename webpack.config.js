@@ -1,5 +1,5 @@
-const prod = require('webpack.config.prod');
-const dev = require('webpack.config.dev');
+const prod = require('./webpack.config.prod.js');
+const dev = require('./webpack.config.dev.js');
 
 const development = process.env.NODE_ENV || 'development';
 
