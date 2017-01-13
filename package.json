@@ -1,0 +1,14 @@
+{
+  "name": "captainfalcon",
+  "version": "1.0.0",
+  "description": "Algorithm Practice Web App",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Arc",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
