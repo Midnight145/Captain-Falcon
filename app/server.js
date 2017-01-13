@@ -12,7 +12,7 @@ app.use(morgan('dev'));
 
 [ 'js', 'css', 'images' ].forEach((route) => {
     app.use('/' + route, express.static(path.resolve(root, route), { index: false }));
-    app.get('/' + route + '*', (req, res) => res.sendStatus(404));
+    app.get('/' + route + '*', (req, res) => res.sendStatus(403));
 });
 
 app.get('*', (req, res) => {
