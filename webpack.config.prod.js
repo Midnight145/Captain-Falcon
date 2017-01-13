@@ -8,10 +8,21 @@ module.exports = {
         path: './prod/js',
         publicPath: '/js/'
     },
+    devtool: 'none',
+    module: {
+        rules: [
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules|dev\/|prod\/)/,
+                loader: 'babel-loader'
+            }
+        ]
+    },
     plugins: [new HtmlWebpackPlugin({
-        title: 'Captain Falcon',
+        template: 'app/template.html',
         filename: '../index.html',
-        favicon: 'app/images/favicon.png'
+        favicon: 'app/images/favicon.png',
+        hash: true
     }),
         new CleanWebpackPlugin(
             [ 'prod' ],

@@ -9,8 +9,17 @@ module.exports = {
         publicPath: '/js/'
     },
     devtool: 'eval-source-map',
+    module: {
+        rules: [
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules|dev\/|prod\/)/,
+                loader: 'babel-loader'
+            }
+        ]
+    },
     plugins: [new HtmlWebpackPlugin({
-        title: 'Captain Falcon',
+        template: 'app/template.html',
         filename: '../index.html',
         favicon: 'app/images/favicon.png',
         hash: true

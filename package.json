@@ -7,7 +7,8 @@
     "start": "cross-env NODE_ENV=production node app/server.js",
     "build": "cross-env NODE_ENV=production webpack -p",
     "start-dev": "cross-env NODE_ENV=development node app/server.js",
-    "build-dev": "cross-env NODE_ENV=development webpack"
+    "build-dev": "cross-env NODE_ENV=development webpack",
+    "watch": "cross-env NODE_ENV=development webpack -w"
   },
   "author": "Arc",
   "license": "GPL-3.0",
