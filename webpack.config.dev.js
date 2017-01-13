@@ -10,7 +10,8 @@ module.exports = {
     },
     plugins: [new HtmlWebpackPlugin({
         title: 'Captain Falcon',
-        filename: '../index.html'
+        filename: '../index.html',
+        favicon: 'app/images/favicon.png'
     }),
     new CleanWebpackPlugin(
         [ 'dev' ],
