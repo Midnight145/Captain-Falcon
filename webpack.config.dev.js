@@ -13,10 +13,10 @@ module.exports = {
         filename: '../index.html',
         favicon: 'app/images/favicon.png'
     }),
-    new CleanWebpackPlugin(
-        [ 'dev' ],
-        {
-            verbose: false
-        }
-    )]
+        new CleanWebpackPlugin(
+            [ 'dev' ],
+            {
+                verbose: false
+            }
+        )]
 };

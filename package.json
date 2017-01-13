@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node app/server.js",
-    "build": "cross-env NODE_ENV=production webpack -P",
+    "build": "cross-env NODE_ENV=production webpack -p",
     "start-dev": "cross-env NODE_ENV=development node app/server.js",
     "build-dev": "cross-env NODE_ENV=development webpack"
   },
