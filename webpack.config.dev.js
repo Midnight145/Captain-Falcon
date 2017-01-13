@@ -8,10 +8,12 @@ module.exports = {
         path: './dev/js',
         publicPath: '/js/'
     },
+    devtool: 'eval-source-map',
     plugins: [new HtmlWebpackPlugin({
         title: 'Captain Falcon',
         filename: '../index.html',
-        favicon: 'app/images/favicon.png'
+        favicon: 'app/images/favicon.png',
+        hash: true
     }),
         new CleanWebpackPlugin(
             [ 'dev' ],
