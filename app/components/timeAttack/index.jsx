@@ -5,6 +5,7 @@ export class TimeAttack extends React.Component {
     render() {
         return <div>
             <IndexLink to='/'>Home</IndexLink>
+            <div>This is the time attack page!</div>
         </div>;
     }
 }

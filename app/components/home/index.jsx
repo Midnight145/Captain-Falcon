@@ -9,6 +9,9 @@ export class Home extends React.Component {
                 <Link to="training">Training!</Link>
                 <Link to="settings">Settings!</Link>
             </div>
+            <div>
+                This is the home page!
+            </div>
         </div>;
     }
 }
