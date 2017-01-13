@@ -4,11 +4,18 @@
   "description": "Algorithm Practice Web App",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "cross-env NODE_ENV=production node index.js",
+    "build": "cross-env NODE_ENV=production webpack",
+    "start-dev": "cross-env NODE_ENV=development node index.js",
+    "build-dev": "cross-env NODE_ENV=development webpack"
   },
   "author": "Arc",
   "license": "GPL-3.0",
   "dependencies": {
+    "cross-env": "^3.1.4",
     "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "webpack": "^2.2.0-rc.4"
   }
 }
