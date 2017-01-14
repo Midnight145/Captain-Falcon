@@ -53,8 +53,6 @@ export class Training extends React.Component {
             case 'active':
                 const { stage } = set;
 
-                console.log('hi');
-
                 const cases = subSet ? set[subSet] : set[algSet];
 
                 const keys = Object.keys(cases)
