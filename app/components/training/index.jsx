@@ -17,6 +17,22 @@ export class Training extends React.Component {
         }
     }
 
+    start = (e) => {
+        if (e.key === ' ') {
+            e.preventDefault();
+            this.setState({ state: 'active' });
+            document.removeEventListener('keydown', this.start);
+        }
+    }
+
+    solved = (e) => {
+        if (e.key === ' ') {
+            e.preventDefault();
+            this.setState({ state: 'home' });
+            document.removeEventListener('keydown', this.solved);
+        }
+    }
+
     changeSet = (set) => {
         this.props.updateSelection({ loaded: false, algSet: set });
         System.import('algorithms/' + set).then((module) => {
@@ -44,12 +60,7 @@ export class Training extends React.Component {
                     <Cube stage={stage} alg={_case[0]}/>
                     <button onClick={() => this.setState({ state: 'home' })}>Solved!</button>
                 </div>;
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === ' ') {
-                        e.preventDefault();
-                        this.setState({ state: 'home' });
-                    }
-                });
+                document.addEventListener('keydown', this.solved);
                 break;
             case 'home':
                 const setOptions = Object.keys(algs);
@@ -65,12 +76,7 @@ export class Training extends React.Component {
 
                     <button onClick={() => this.setState({ state: 'active' }) } disabled={!ready}>Start!</button>
                 </div>;
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === ' ') {
-                        e.preventDefault();
-                        this.setState({ state: 'active' });
-                    }
-                });
+                document.addEventListener('keydown', this.start);
         }
 
         return <div>
