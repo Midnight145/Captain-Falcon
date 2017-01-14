@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
+import { Settings } from '../containers/settings';
+
 import { App } from '../components/app';
 import { Home } from '../components/home';
 import { NotFound } from '../components/notFound';
-import { Settings } from '../components/settings';
 import { TimeAttack } from '../components/timeAttack';
 import { Training } from '../components/training';
 
