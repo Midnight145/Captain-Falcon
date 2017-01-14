@@ -21,7 +21,7 @@ export class Training extends React.Component {
         this.props.updateSelection({ loaded: false, algSet: set });
         System.import('algorithms/' + set).then((module) => {
             this.setState({ set: module, algSet: set });
-            this.props.updateSelection({ loaded: true });
+            this.props.updateSelection({ subSet: module.subSet, loaded: true });
         });
     };
 
@@ -31,11 +31,17 @@ export class Training extends React.Component {
         let body;
         switch (this.state.state) {
             case 'active':
-                const stage = set.stage;
-                console.log(stage);
-                // const alg = collT[Math.floor(Math.random()*collT.length)];
+                const { stage } = set;
+
+                console.log('hi');
+
+                const cases = subSet ? set[subSet] : set[algSet];
+
+                const keys = Object.keys(cases)
+                const _case = cases[keys[ keys.length * Math.random() << 0]];
+
                 body = <div>
-                    {/*<Cube stage={stage} alg={alg}/>*/}
+                    <Cube stage={stage} alg={_case[0]}/>
                     <button onClick={() => this.setState({ state: 'home' })}>Solved!</button>
                 </div>;
                 document.addEventListener('keydown', (e) => {

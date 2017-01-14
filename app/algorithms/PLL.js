@@ -1,5 +1,7 @@
 export const stage = 'll';
 
+export const subSet = false;
+
 export const PLL = {
     Aa: [
         "l' U R' D2 R U' R' D2 R2",

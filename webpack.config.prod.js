@@ -3,10 +3,22 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 
+const lib = [
+    'react',
+    'react-dom',
+    'react-redux',
+    'react-router',
+    'react-router-redux',
+    'redux'
+];
+
 module.exports = {
-    entry: './app/index.jsx',
+    entry: {
+        client: './app/index.jsx',
+        lib
+    },
     output: {
-        filename: 'client.min.js',
+        filename: '[name].min.js?[chunkhash]',
         path: './prod/js',
         publicPath: '/js/'
     },
@@ -28,8 +40,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'app/template.html',
             filename: '../index.html',
-            favicon: 'app/images/favicon.png',
-            hash: true
+            favicon: 'app/images/favicon.png'
         }),
         new CleanWebpackPlugin(
             [ 'prod' ],
@@ -39,8 +50,11 @@ module.exports = {
         ),
         new webpack.EnvironmentPlugin(['NODE_ENV']),
         new webpack.optimize.CommonsChunkPlugin({
+            name: [ 'lib', 'manifest' ]
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
             children: true,
-            async: true,
+            async: true
         })
     ]
 };

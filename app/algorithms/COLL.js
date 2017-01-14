@@ -1,5 +1,7 @@
 export const stage = 'coll';
 
+export const subSet = 'T';
+
 export const T = {
     F1: [
         "R U2' R' U' R U' R2 U2' R U R' U R",
