@@ -16,8 +16,6 @@ export class Cube extends React.Component {
 
         const url = 'http://cube.crider.co.uk/visualcube.png' + query;
 
-        console.log(url);
-
         return <div>
             <img src={url} />
         </div>;

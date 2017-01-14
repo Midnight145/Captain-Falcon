@@ -17,7 +17,7 @@ export class Settings extends React.Component {
 
     render = () => {
         const { settings } = this.props;
-        const angle = settings.view ? 'Top Down' : 'Isometric';
+        const angle = settings.view ? 'Isometric' : 'Top Down';
         return <div>
             <IndexLink to='/'>Home</IndexLink>
             <div>
