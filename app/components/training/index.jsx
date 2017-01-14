@@ -38,6 +38,12 @@ export class Training extends React.Component {
                 break;
             default:
                 body = <div><button onClick={() => this.setState({ state: 'active' }) }>Start!</button></div>;
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === ' ') {
+                        e.preventDefault();
+                        this.setState({ state: 'active' });
+                    }
+                });
         }
 
         return <div>
