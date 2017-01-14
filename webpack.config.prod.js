@@ -11,7 +11,8 @@ module.exports = {
     },
     devtool: 'none',
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
+        modules: [ path.resolve(__dirname, "app"), "node_modules" ]
     },
     module: {
         rules: [

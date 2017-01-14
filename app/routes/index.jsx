@@ -2,13 +2,13 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import { Settings } from '../containers/settings';
+import { Training } from '../containers/training';
 
 import { App } from '../components/app';
 import { Home } from '../components/home';
 import { Library } from '../components/library';
 import { NotFound } from '../components/notFound';
 import { TimeAttack } from '../components/timeAttack';
-import { Training } from '../components/training';
 
 export const routes = <Route path='/' component={App}>
     <IndexRoute component={Home} />

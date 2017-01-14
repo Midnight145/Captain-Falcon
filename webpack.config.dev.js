@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path');
 
 module.exports = {
     entry: './app/index.jsx',
@@ -11,7 +12,8 @@ module.exports = {
     },
     devtool: 'eval-source-map',
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
+        modules: [ path.resolve(__dirname, "app"), "node_modules" ]
     },
     module: {
         rules: [

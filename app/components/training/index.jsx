@@ -1,7 +1,11 @@
 import React from 'react';
 import { IndexLink } from 'react-router';
 
-import { Cube } from '../../containers/cube';
+import { Cube } from 'containers/cube';
+
+import { Dropdown } from '../settings/dropdown';
+
+import { algs } from '../../algorithms';
 
 export class Training extends React.Component {
     constructor () {
@@ -37,7 +41,10 @@ export class Training extends React.Component {
                 });
                 break;
             default:
-                body = <div><button onClick={() => this.setState({ state: 'active' }) }>Start!</button></div>;
+                body = <div>
+                    <Dropdown options={Object.keys(algs)} />
+                    <button onClick={() => this.setState({ state: 'active' }) }>Start!</button>
+                </div>;
                 document.addEventListener('keydown', (e) => {
                     if (e.key === ' ') {
                         e.preventDefault();
