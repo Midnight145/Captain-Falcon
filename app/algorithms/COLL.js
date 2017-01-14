@@ -40,3 +40,81 @@ export const T = {
         "R' U' R U R2' D' R U2 R' D R2' U' R' U R"
     ]
 };
+
+export const U = {
+    E1: [
+        "R' U' R U' R' U2 R2 U R' U R U2 R'",
+        "y' R U R' U R U2 R2 U' R U' R' U2 R",
+        "y' R U R' U' R U' R' U2 R U' R' U2 R U R'",
+        "y2 R U R' U R U2 R2 U' R U' R' U2 R"
+    ],
+    E2: [
+        "R' F R U' R' U' R U R' F' R U R' U' R' F R F' R",
+        "y' R' U' R F R2 D' R U R' D R2 U' F'",
+        "R2' F' R U R2 U' R' F R U' R2 U R2' U R'",
+        "R U' R2 U' R2 U R' F' R U R2 U' R' F R2"
+    ],
+    E3: [
+        "y2 R2 D R' U2 R D' R' U2 R'",
+        "x' R U' R' D R U2 R' D' R U' R' x",
+        "R' U L' U R U' L U2 R' U R",
+        "y R2 D R' U R D' R2 U R U2 R'"
+    ],
+    E4: [
+        "F R U' R' U R U R' U R U' R' F'",
+        "x' R2 D2 R' U2 R D2 R' U2 R'",
+        "y2 R' F2 R U2 R U2 R' F2 R U2 R'",
+        "y F R2 U' L' U R2 U' L U F'"
+    ],
+    E5: [
+        "R2' D' R U2 R' D R U2 R",
+        "y2 L2 D' L U2 L' D L U2 L",
+        "L U' R U' L' U R' U2 L U' L'",
+        "y2 x R' U R D' R' U2 R D R' U R x'"
+    ],
+    E6: [
+        "R' U2 R F U' R' U' R U F'",
+        "R2 D' R U R' D R U R U' R' U' R",
+        "R U' R' U' R U R D R' U R D' R2",
+        "R' D R2 U' R' U' R U2 R2 D' R"
+    ]
+};
+
+export const L = {
+    D1: [
+        "y' R U2 R' U' R U R' U' R U R' U' R U' R'",
+        "R' U' R U' R' U2 R U' R U R' U R U2 R'",
+        "y2 R' U' R U' R' U R U' R' U R U' R' U2 R",
+        "R U' R' L' U2 L U L' U L R U2 R'"
+    ],
+    D2: [
+        "R' U2 R' D' R U2 R' D R2",
+        "R U R' U2 L U' R U L' U R'",
+        "y' R' U2 R U R2' D' R U R' D R2",
+        "y2 L' U2 L' D' L U2 L' D L2"
+    ],
+    D3: [
+        "y R U2 R D R' U2 R D' R2",
+        "R' F' R U R' U' R' F R2 U' R' U2 R",
+        "F R F' r U R2 U' r' F R F'",
+        "R' D' r U2 r' D R U2 R U R'"
+    ],
+    D4: [
+        "x' R U' R' D R U R' D' x",
+        "y F R' F' r U R U' r'",
+        "y F l' U' L U l F' L'",
+        "y' R' F' L' F R F' L F"
+    ],
+    D5: [
+        "y2 F' r U R' U' r' F R",
+        "y2 r U R U' r' F R' F'",
+        "y x R' U R D' R' U' R D x'",
+        "y' F R U' R' U' R U2 R' U' F'"
+    ],
+    D6: [
+        "y' R' U' R U R' F' R U R' U' R' F R2",
+        "y r U2 R2 F R F' R U2 r'",
+        "F R U R' U' R U' R' U2 R U2 R' U' F'",
+        "R2 F' R U R U' R' F R U' R' U R"
+    ]
+}

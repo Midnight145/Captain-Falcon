@@ -41,6 +41,10 @@ export class Training extends React.Component {
         });
     };
 
+    changeSubSet = (subSet) => {
+        this.props.updateSelection({ subSet });
+    }
+
     render = () => {
         const { algSet, subSet, loaded } = this.props;
         const { set } = this.state;
@@ -67,13 +71,19 @@ export class Training extends React.Component {
 
                 const setSelector = <Dropdown options={setOptions} onChange={this.changeSet} value={algSet} />;
 
-                const subSelector = <Dropdown options={Object.keys(algs)} />;
+                const subSetOptions = Object.keys(set);
+                let i = subSetOptions.indexOf('stage');
+                subSetOptions.splice(i, 1);
+                i = subSetOptions.indexOf('subSet');
+                subSetOptions.splice(i, 1);
+
+                const subSelector = <Dropdown options={subSetOptions} value={subSet} onChange={this.changeSubSet} />;
 
                 const ready = subSet !== true && set && loaded;
 
                 body = <div>
                     {setSelector}
-
+                    {subSet ? subSelector : null}
                     <button onClick={() => this.setState({ state: 'active' }) } disabled={!ready}>Start!</button>
                 </div>;
                 document.addEventListener('keydown', this.start);
