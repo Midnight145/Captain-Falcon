@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path');
 
 module.exports = {
     entry: './app/index.jsx',
@@ -36,6 +37,10 @@ module.exports = {
                 verbose: false
             }
         ),
-        new webpack.EnvironmentPlugin(['NODE_ENV'])
+        new webpack.EnvironmentPlugin(['NODE_ENV']),
+        new webpack.optimize.CommonsChunkPlugin({
+            children: true,
+            async: true,
+        })
     ]
 };

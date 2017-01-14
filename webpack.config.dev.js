@@ -37,6 +37,10 @@ module.exports = {
                 verbose: false
             }
         ),
-        new webpack.EnvironmentPlugin(['NODE_ENV'])
+        new webpack.EnvironmentPlugin(['NODE_ENV']),
+        new webpack.optimize.CommonsChunkPlugin({
+            children: true,
+            async: true,
+        })
     ]
 };

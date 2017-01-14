@@ -5,32 +5,37 @@ import { Cube } from 'containers/cube';
 
 import { Dropdown } from '../settings/dropdown';
 
-import { algs } from '../../algorithms';
+import { algs } from 'algorithms';
 
 export class Training extends React.Component {
-    constructor () {
+    constructor() {
         super();
         this.state = {
-            state: 'home'
+            state: 'home',
+            set: false,
+            algSet: null
         }
+    }
+
+    changeSet = (set) => {
+        this.props.updateSelection({ loaded: false, algSet: set });
+        System.import('algorithms/' + set).then((module) => {
+            this.setState({ set: module, algSet: set });
+            this.props.updateSelection({ loaded: true });
+        });
     };
 
     render = () => {
+        const { algSet, subSet, loaded } = this.props;
+        const { set } = this.state;
         let body;
         switch (this.state.state) {
             case 'active':
-                const collT = [
-                    "R U2' R' U' R U' R2 U2' R U R' U R",
-                    "R' U R U2' R' L' U R U' L",
-                    "y l' U' L U R U' r' F",
-                    "y2 F R U R' U' R U' R' U' R U R' F'",
-                    "y' r U R' U' r' F R F'",
-                    "R' U R2 D r' U2 r D' R2 U' R"
-                ];
-                const stage = 'coll';
-                const alg = collT[Math.floor(Math.random()*collT.length)];
+                const stage = set.stage;
+                console.log(stage);
+                // const alg = collT[Math.floor(Math.random()*collT.length)];
                 body = <div>
-                    <Cube stage={stage} alg={alg}/>
+                    {/*<Cube stage={stage} alg={alg}/>*/}
                     <button onClick={() => this.setState({ state: 'home' })}>Solved!</button>
                 </div>;
                 document.addEventListener('keydown', (e) => {
@@ -40,10 +45,19 @@ export class Training extends React.Component {
                     }
                 });
                 break;
-            default:
+            case 'home':
+                const setOptions = Object.keys(algs);
+
+                const setSelector = <Dropdown options={setOptions} onChange={this.changeSet} value={algSet} />;
+
+                const subSelector = <Dropdown options={Object.keys(algs)} />;
+
+                const ready = subSet !== true && set && loaded;
+
                 body = <div>
-                    <Dropdown options={Object.keys(algs)} />
-                    <button onClick={() => this.setState({ state: 'active' }) }>Start!</button>
+                    {setSelector}
+
+                    <button onClick={() => this.setState({ state: 'active' }) } disabled={!ready}>Start!</button>
                 </div>;
                 document.addEventListener('keydown', (e) => {
                     if (e.key === ' ') {

@@ -1,4 +1,4 @@
-import { UPDATE_SETTINGS } from './';
+import { UPDATE_SETTINGS } from 'actions';
 
 export const updateSettings = (settings) => {
   return {

@@ -1,4 +1,4 @@
-import { UPDATE_SELECTION } from './';
+import { UPDATE_SELECTION } from 'actions';
 
 export const updateSelection = (selection) => {
   return {

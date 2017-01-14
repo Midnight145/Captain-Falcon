@@ -3,9 +3,9 @@ import { render } from 'react-dom'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 
-import { configureStore } from './store/configureStore'
+import { configureStore } from 'store/configureStore'
 
-import { Root } from './containers/root'
+import { Root } from 'containers/root'
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);

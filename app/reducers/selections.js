@@ -1,15 +1,16 @@
-import { UPDATE_SELECTION } from '../actions';
+import { UPDATE_SELECTION } from 'actions';
 
 const initialState = {
-    view: false,
-    size: 100
+    algSet: 'PLL',
+    subSet: false,
+    loaded: true
 };
 
-export const settings = (state = initialState, action) => {
+export const selections = (state = initialState, action) => {
     const { type, payload } = action;
     switch (type) {
-        case UPDATE_SETTINGS:
-            return Object.assign({}, state, payload.settings);
+        case UPDATE_SELECTION:
+            return Object.assign({}, state, payload.selection);
         default:
             return state;
     }

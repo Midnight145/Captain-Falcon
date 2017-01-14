@@ -1,7 +1,7 @@
 import React from 'react';
 
 export class Cube extends React.Component {
-    render() {
+    render = () => {
         const { size, stage, alg, view } = this.props;
         const parameters = {
             size,

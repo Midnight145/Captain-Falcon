@@ -1,4 +1,4 @@
 export const algs = {
-    PLL: "PLL",
-    COLL: "T"
+    PLL: 'PLL',
+    COLL: 'T'
 };

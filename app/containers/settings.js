@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import { Settings as Component } from '../components/settings';
+import { Settings as Component } from 'components/settings';
 
-import { updateSettings } from '../actions/settings';
+import { updateSettings } from 'actions/settings';
 
 const mapStateToProps = (state) => {
     return {

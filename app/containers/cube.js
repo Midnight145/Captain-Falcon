@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { Cube as Component } from '../components/cube';
+import { Cube as Component } from 'components/cube';
 
 const mapStateToProps = (state) => {
     const { view, size } = state.settings;

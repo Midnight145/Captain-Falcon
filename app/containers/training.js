@@ -1,19 +1,21 @@
 import { connect } from 'react-redux';
 
-import { Training as Component } from '../components/training';
+import { Training as Component } from 'components/training';
 
-import { updateSettings } from '../actions/settings';
+import { updateSelection } from 'actions/selections';
 
 const mapStateToProps = (state) => {
     return {
-        settings: state.settings
+        algSet: state.selections.algSet,
+        subSet: state.selections.subSet,
+        loaded: state.selections.loaded
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateSettings: (settings) => {
-            dispatch(updateSettings(settings));
+        updateSelection: (selection) => {
+            dispatch(updateSelection(selection));
         }
     };
 };
