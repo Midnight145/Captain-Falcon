@@ -7,6 +7,7 @@ export class Home extends React.Component {
             <div>
                 <Link to="training">Training!</Link>
                 <Link to="timeAttack">Time Attack!</Link>
+                <Link to="library">Library!</Link>
                 <Link to="settings">Settings!</Link>
             </div>
             <div>
