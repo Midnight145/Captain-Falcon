@@ -17,12 +17,17 @@ export class Settings extends React.Component {
 
     render = () => {
         const { settings } = this.props;
+        const angle = settings.view ? 'Top Down' : 'Isometric';
         return <div>
             <IndexLink to='/'>Home</IndexLink>
-            <label>Cube Angle</label>
-            <Toggle state={settings.view} onChange={this.updateSettings({ view: !settings.view})}/>
-            <label>Cube Size</label>
-            <input type="range" value={settings.size}  min="100" max="400" onChange={this.handleSize} />
+            <div>
+                <label>{'Cube Angle: ' + angle }</label>
+                <Toggle state={settings.view} onChange={this.updateSettings({ view: !settings.view})}/>
+            </div>
+            <div>
+                <label>{'Cube Size: ' + settings.size}</label>
+                <input type="range" value={settings.size}  min="100" max="400" onChange={this.handleSize} />
+            </div>
         </div>;
     }
 }
