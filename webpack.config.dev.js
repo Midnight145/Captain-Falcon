@@ -13,6 +13,8 @@ const lib = [
     'redux'
 ];
 
+const exclude = /(node_modules|libraries|dev|prod)/;
+
 module.exports = {
     entry: {
         client: './app/index.jsx',
@@ -26,23 +28,23 @@ module.exports = {
     devtool: 'eval-source-map',
     resolve: {
         extensions: ['.js', '.jsx', 'css', 'scss', '.png'],
-        modules: [ path.resolve(__dirname, 'app'), 'node_modules' ]
+        modules: [ path.resolve(__dirname, 'app'), path.resolve(__dirname, 'libraries'), 'node_modules' ]
     },
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules|dev|prod)/,
+                exclude,
                 loader: 'babel-loader'
             },
             {
                 test: /\.png$/,
-                exclude: /(node_modules|dev|prod)/,
+                exclude,
                 loader: 'file-loader?name=images/[name].[ext]?[md5:hash:hex:20]'
             },
             {
                 test: /\.s?css/,
-                exclude: /(node_modules|dev|prod)/,
+                exclude,
                 loader: 'style-loader!css-loader?module!sass-loader'
             }
         ]
@@ -51,7 +53,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'app/template.html',
             filename: 'index.html',
-            favicon: 'app/images/favicon1.png'
+            favicon: 'app/images/favicon2.png'
         }),
         new CleanWebpackPlugin(
             [ 'dev' ],
