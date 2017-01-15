@@ -12,6 +12,7 @@
   "author": "Arc",
   "license": "GPL-3.0",
   "dependencies": {
+    "connect-gzip-static": "^1.0.0",
     "cross-env": "^3.1.4",
     "express": "^4.14.0",
     "morgan": "^1.7.0"
@@ -25,7 +26,6 @@
     "babel-preset-react": "^6.16.0",
     "clean-webpack-plugin": "^0.1.15",
     "compression-webpack-plugin": "^0.3.2",
-    "connect-gzip-static": "^1.0.0",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^2.0.0-beta.5",
     "favicons-webpack-plugin": "0.0.7",
