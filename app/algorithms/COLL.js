@@ -117,4 +117,31 @@ export const L = {
         "F R U R' U' R U' R' U2 R U2 R' U' F'",
         "R2 F' R U R U' R' F R U' R' U R"
     ]
-}
+};
+
+export const H = {
+    H1: [
+        "R U R' U R U' R' U R U2 R' ",
+        "y' R U2 R' U' R U R' U' R U' R' ",
+        "R' U' R U' R' U R U' R' U2 R ",
+        "y' R U2 R' U' R U' R' U' R' U' R U' R' U2 R "
+    ],
+    H2: [
+        "F R U' R' U R U2 R' U' R U R' U' F' ",
+        "R L' U' L U' L' U L U2 R' U L' U2 L ",
+        "f R2 S' U' R2 U' R2 U R2 F' ",
+        "L' U R U' L U' R' U2 r' F R F' M' "
+    ],
+    H3: [
+        "R U R' U R U L' U R' U' L ",
+        "R U R' U R U r' F R' F' r ",
+        "R' U' R U' R' U' L U' R U L' ",
+        "R' F' R U2 R U2 R' F U' R U' R' "
+    ],
+    H4: [
+        "y F R U R' U' R U R' U' R U R' U' F' ",
+        "y F U R U' R' U R U' R' U R U' R' F' ",
+        "y R U R' U y' R' U R U' R2 F R F' R ",
+        "y R' U' R' F R F' R' F R F' R' F R F' U R "
+    ]
+};

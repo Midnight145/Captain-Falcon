@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 const lib = [
@@ -18,28 +19,38 @@ module.exports = {
         lib
     },
     output: {
-        filename: '[name].js?[chunkhash]',
-        path: './dev/js',
-        publicPath: '/js/'
+        filename: 'js/[name].js?[chunkhash]',
+        path: './dev/',
+        publicPath: '/'
     },
     devtool: 'eval-source-map',
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', 'css', 'scss', '.png'],
         modules: [ path.resolve(__dirname, 'app'), 'node_modules' ]
     },
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules|dev\/|prod\/)/,
+                exclude: /(node_modules|dev|prod)/,
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.png$/,
+                exclude: /(node_modules|dev|prod)/,
+                loader: 'file-loader?name=images/[name].[ext]?[md5:hash:hex:20]'
+            },
+            {
+                test: /\.s?css/,
+                exclude: /(node_modules|dev|prod)/,
+                loader: 'style-loader!css-loader?module!sass-loader'
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: 'app/template.html',
-            filename: '../index.html',
+            filename: 'index.html',
             favicon: 'app/images/favicon.png'
         }),
         new CleanWebpackPlugin(

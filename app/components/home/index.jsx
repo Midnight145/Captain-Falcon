@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import splash from 'images/splash.png';
+
+import styles from './styles.scss';
+
 export class Home extends React.Component {
     render = () => {
         return <div>
@@ -13,6 +17,7 @@ export class Home extends React.Component {
             <div>
                 This is the home page!
             </div>
+            <img id={styles.splash} src={splash} />
         </div>;
     }
 }
