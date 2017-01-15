@@ -51,7 +51,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'app/template.html',
             filename: 'index.html',
-            favicon: 'app/images/favicon.png'
+            favicon: 'app/images/favicon1.png'
         }),
         new CleanWebpackPlugin(
             [ 'dev' ],

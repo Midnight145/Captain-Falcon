@@ -65,7 +65,7 @@ module.exports = {
         ),
         new webpack.EnvironmentPlugin(['NODE_ENV']),
         new FaviconsWebpackPlugin({
-            logo: './app/images/favicon.png',
+            logo: './app/images/favicon1.png',
             prefix: 'images/icons-[hash]/'
         }),
         new ExtractTextWebpackPlugin({
