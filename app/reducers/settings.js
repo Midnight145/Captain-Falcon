@@ -2,7 +2,7 @@ import { UPDATE_SETTINGS } from 'actions';
 
 const initialState = {
     view: false,
-    size: 100
+    size: 300
 };
 
 export const settings = (state = initialState, action) => {
