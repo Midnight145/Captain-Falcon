@@ -9,10 +9,11 @@ export class Home extends React.Component {
     render = () => {
         return <div>
             <div>
-                <Link to="training">Training!</Link>
-                <Link to="timeAttack">Time Attack!</Link>
-                <Link to="library">Library!</Link>
-                <Link to="settings">Settings!</Link>
+                <Link to='training'>Training!</Link>
+                <Link to='timeAttack'>Time Attack!</Link>
+                <Link to='library'>Library!</Link>
+                <Link to='settings'>Settings!</Link>
+                <a target='_blank' href='https://discord.gg/cS3tF7b'>Discord!</a>
             </div>
             <div>
                 This is the home page!
