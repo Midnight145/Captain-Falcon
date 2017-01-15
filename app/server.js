@@ -14,11 +14,15 @@ app.use(morgan('dev'));
 const static = dev ? express.static : gzipStatic;
 
 [ 'js', 'css', 'images' ].forEach((route) => {
-    app.use('/' + route, static(path.resolve(root, route), { index: false }));
+    app.use([ '/' + route, '/' + route + '/*' ], static(path.resolve(root, route), { index: false }));
 });
 
 app.get('*', (req, res) => {
     res.sendFile('index.html', { root });
+});
+
+app.all('*', (req, res) => {
+    res.sendStatus(403);
 });
 
 app.listen(process.env.PORT || 80);
