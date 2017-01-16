@@ -14,7 +14,7 @@ export class Cube extends React.Component {
             query += '&' + key + '=' + parameters[key];
         }
 
-        const url = 'http://cube.crider.co.uk/visualcube.png' + query;
+        const url = 'http://stachu.cubing.net/v/' + query;
 
         return <div>
             <img src={url} />
