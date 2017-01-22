@@ -3,19 +3,21 @@
   "version": "1.0.0",
   "description": "Algorithm Practice Web App",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node app/server.js",
+    "start": "cross-env NODE_ENV=production node server/index.js",
     "build": "cross-env NODE_ENV=production webpack",
-    "start-dev": "cross-env NODE_ENV=development node app/server.js",
+    "start-dev": "cross-env NODE_ENV=development node server/index.js",
     "build-dev": "cross-env NODE_ENV=development webpack",
     "watch": "cross-env NODE_ENV=development webpack -w"
   },
   "author": "Arc",
   "license": "GPL-3.0",
   "dependencies": {
+    "body-parser": "^1.16.0",
     "connect-gzip-static": "^1.0.0",
     "cross-env": "^3.1.4",
     "express": "^4.14.0",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "mysql": "^2.12.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.6.1",

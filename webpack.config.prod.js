@@ -12,7 +12,8 @@ const lib = [
     'react-redux',
     'react-router',
     'react-router-redux',
-    'redux'
+    'redux',
+    'twistysim'
 ];
 
 module.exports = {

@@ -23,7 +23,7 @@ export class Training extends React.Component {
             this.setState({ state: 'active' });
             document.removeEventListener('keydown', this.start);
         }
-    }
+    };
 
     solved = (e) => {
         if (e.key === ' ') {
@@ -31,7 +31,7 @@ export class Training extends React.Component {
             this.setState({ state: 'home' });
             document.removeEventListener('keydown', this.solved);
         }
-    }
+    };
 
     changeSet = (set) => {
         this.props.updateSelection({ loaded: false, algSet: set });
@@ -43,7 +43,7 @@ export class Training extends React.Component {
 
     changeSubSet = (subSet) => {
         this.props.updateSelection({ subSet });
-    }
+    };
 
     render = () => {
         const { algSet, subSet, loaded } = this.props;
@@ -51,7 +51,7 @@ export class Training extends React.Component {
         let body;
         switch (this.state.state) {
             case 'active':
-                const { stage } = set;
+                const { puzzle, stage } = set;
 
                 const cases = subSet ? set[subSet] : set[algSet];
 
@@ -59,15 +59,13 @@ export class Training extends React.Component {
                 const _case = cases[keys[ keys.length * Math.random() << 0]];
 
                 body = <div>
-                    <Cube stage={stage} alg={_case[0]}/>
+                    <Cube puzzle={puzzle} stage={stage} alg={_case[0]}/>
                     <button onClick={() => this.setState({ state: 'home' })}>Solved!</button>
                 </div>;
                 document.addEventListener('keydown', this.solved);
                 break;
             case 'home':
-                const setOptions = Object.keys(algs);
-
-                const setSelector = <Dropdown options={setOptions} onChange={this.changeSet} value={algSet} />;
+                const setSelector = <Dropdown options={algs} onChange={this.changeSet} value={algSet} />;
 
                 const subSetOptions = Object.keys(set);
                 let i = subSetOptions.indexOf('stage');

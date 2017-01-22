@@ -1,3 +1,5 @@
+export const puzzle = 3;
+
 export const stage = 'coll';
 
 export const subSet = 'T';

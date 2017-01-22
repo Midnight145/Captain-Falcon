@@ -10,7 +10,8 @@ const lib = [
     'react-redux',
     'react-router',
     'react-router-redux',
-    'redux'
+    'redux',
+    'twistysim'
 ];
 
 const exclude = /(node_modules|libraries|dev|prod)/;

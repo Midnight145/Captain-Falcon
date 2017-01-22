@@ -1,3 +1,6 @@
 export const UPDATE_SETTINGS = 'UPDATE_SETTINGS';
 
 export const UPDATE_SELECTION = 'UPDATE_SELECTION';
+
+export const ADD_SET = 'ADD_SET';
+export const POPULATE_SETS = 'POPULATE_SETS';

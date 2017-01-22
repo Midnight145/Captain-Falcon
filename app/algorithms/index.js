@@ -1,4 +1,5 @@
-export const algs = {
-    PLL: 'PLL',
-    COLL: 'T'
-};
+export const algs = [
+    'PLL',
+    'COLL',
+    'EPPLL'
+];

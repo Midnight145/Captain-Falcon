@@ -1,4 +1,6 @@
-export const stage = 'll';
+export const puzzle = 3;
+
+export const stage = 'pll';
 
 export const subSet = false;
 
