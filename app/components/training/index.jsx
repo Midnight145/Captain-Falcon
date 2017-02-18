@@ -1,93 +1,53 @@
 import React from 'react';
-import { IndexLink } from 'react-router';
 
-import { Cube } from 'containers/cube';
-
-import { Dropdown } from '../settings/dropdown';
-
-import { algs } from 'algorithms';
+import { ActivePage } from './pages/active';
+import { HelpPage } from './pages/help';
+import { HomePage } from './pages/home';
+import { SelectionsPage } from './pages/selections';
 
 export class Training extends React.Component {
+    static childContextTypes = {
+        page: React.PropTypes.string,
+        changePage: React.PropTypes.func,
+        sets: React.PropTypes.array
+    };
+
+    getChildContext = () => {
+        return {
+            page: this.state.page,
+            changePage: this.changePage,
+            sets: this.props.sets
+        }
+    };
+
     constructor() {
         super();
         this.state = {
-            state: 'home',
-            set: false,
-            algSet: null
-        }
-    }
-
-    start = (e) => {
-        if (e.key === ' ') {
-            e.preventDefault();
-            this.setState({ state: 'active' });
-            document.removeEventListener('keydown', this.start);
+            page: 'home'
         }
     };
 
-    solved = (e) => {
-        if (e.key === ' ') {
-            e.preventDefault();
-            this.setState({ state: 'home' });
-            document.removeEventListener('keydown', this.solved);
-        }
-    };
-
-    changeSet = (set) => {
-        this.props.updateSelection({ loaded: false, algSet: set });
-        System.import('algorithms/' + set).then((module) => {
-            this.setState({ set: module, algSet: set });
-            this.props.updateSelection({ subSet: module.subSet, loaded: true });
+    changePage = (page) => {
+        console.log(page);
+        this.setState({
+            page
         });
     };
 
-    changeSubSet = (subSet) => {
-        this.props.updateSelection({ subSet });
-    };
-
     render = () => {
-        const { algSet, subSet, loaded } = this.props;
-        const { set } = this.state;
-        let body;
-        switch (this.state.state) {
-            case 'active':
-                const { puzzle, stage } = set;
+        const { set, sets, selectedSet, selectedSubSet, setLoaded, subSetLoaded } = this.props;
 
-                const cases = subSet ? set[subSet] : set[algSet];
-
-                const keys = Object.keys(cases)
-                const _case = cases[keys[ keys.length * Math.random() << 0]];
-
-                body = <div>
-                    <Cube puzzle={puzzle} stage={stage} alg={_case[0]}/>
-                    <button onClick={() => this.setState({ state: 'home' })}>Solved!</button>
-                </div>;
-                document.addEventListener('keydown', this.solved);
-                break;
+        switch (this.state.page) {
             case 'home':
-                const setSelector = <Dropdown options={algs} onChange={this.changeSet} value={algSet} />;
-
-                const subSetOptions = Object.keys(set);
-                let i = subSetOptions.indexOf('stage');
-                subSetOptions.splice(i, 1);
-                i = subSetOptions.indexOf('subSet');
-                subSetOptions.splice(i, 1);
-
-                const subSelector = <Dropdown options={subSetOptions} value={subSet} onChange={this.changeSubSet} />;
-
-                const ready = subSet !== true && set && loaded;
-
-                body = <div>
-                    {setSelector}
-                    {subSet ? subSelector : null}
-                    <button onClick={() => this.setState({ state: 'active' }) } disabled={!ready}>Start!</button>
-                </div>;
-                document.addEventListener('keydown', this.start);
+                return <ActivePage />;
+            case 'selections':
+                return <SelectionsPage />;
+            case 'active':
+                return <HomePage set={set} subSet={null} />;
+            case 'help':
+                return <HelpPage />;
+            default:
+                return <div>Uh, there's an issue...</div>;
         }
-
-        return <div>
-            <IndexLink to='/'>Home</IndexLink>
-            {body}
-        </div>;
     }
 }

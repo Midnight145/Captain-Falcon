@@ -1,9 +1,10 @@
 import { UPDATE_SELECTION } from 'actions';
 
 const initialState = {
-    algSet: 'PLL',
-    subSet: false,
-    loaded: true
+    set: null,
+    subSet: null,
+    setLoaded: false,
+    subSetLoaded: false
 };
 
 export const selections = (state = initialState, action) => {

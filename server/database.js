@@ -1,6 +1,17 @@
-const mysql = require('mysql');
+const Sequelize = require('sequelize');
 
-const dbUrl = process.env.DATABASE_URL || 'mysql://root:rootpassword@localhost:3306/test3';
-const db = mysql.createPool(dbUrl);
+const initializeDatabase = (url) => {
+    const db = new Sequelize(url, {
+        dialect: 'mysql'
+    });
 
-module.exports = db;
+    return new Promise((resolve, reject) => {
+        db.sync().then(() => {
+            resolve(db);
+        });
+    });
+};
+
+module.exports = {
+    initializeDatabase
+};

@@ -3,7 +3,11 @@ const morgan = require('morgan');
 const path = require('path');
 const gzipStatic = require('connect-gzip-static');
 
+const initializeDatabase = require('./database').initializeDatabase;
+
 const api = require('./api');
+
+const dbUrl = process.env.DATABASE_URL || 'mysql://root:rootpassword@localhost:3306/sequelize';
 
 const dev = process.env.NODE_ENV === 'development';
 const root = dev ? './dev' : './prod';
@@ -26,6 +30,9 @@ app.all('*', (req, res) => {
     res.sendStatus(404);
 });
 
-const instance = app.listen(process.env.PORT || 80, () => {
-    console.info('Listening on port ' + instance.address().port);
+initializeDatabase(dbUrl).then((db) => {
+    module.exports = db;
+    const instance = app.listen(process.env.PORT || 80, () => {
+        console.info('Listening on port ' + instance.address().port + '\n');
+    });
 });

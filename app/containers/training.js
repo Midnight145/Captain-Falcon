@@ -5,10 +5,14 @@ import { Training as Component } from 'components/training';
 import { updateSelection } from 'actions/selections';
 
 const mapStateToProps = (state) => {
+    const set = state.selections.set ? state.library[state.selections.set] : null;
     return {
-        algSet: state.selections.algSet,
-        subSet: state.selections.subSet,
-        loaded: state.selections.loaded
+        set,
+        sets: state.library,
+        selectedSet: state.selections.set,
+        selectedSubSet: state.selections.subSet,
+        setLoaded: state.selections.setLoaded,
+        subSetLoaded: state.selections.subSetLoaded
     };
 };
 

@@ -11,7 +11,7 @@ export class App extends React.Component {
         getAllSets().then(res => {
             this.props.populateSets(res);
         }).catch(err => {
-            console.error(err);
+            console.error('Error loading sets.');
         });
     }
 }
