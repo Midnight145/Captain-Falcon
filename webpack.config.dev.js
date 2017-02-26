@@ -6,12 +6,12 @@ const path = require('path');
 
 const lib = [
     'react',
+    'react-bootstrap',
     'react-dom',
     'react-redux',
     'react-router',
     'react-router-redux',
-    'redux',
-    'twistysim'
+    'redux'
 ];
 
 const exclude = /(node_modules|libraries|dev|prod)/;
@@ -41,12 +41,23 @@ module.exports = {
             {
                 test: /\.png$/,
                 exclude,
-                loader: 'file-loader?name=images/[name].[ext]?[md5:hash:hex:20]'
+                loader: 'file-loader',
+                options: {
+                    name: 'images/[name].[ext]?[md5:hash:hex:20]',
+                }
             },
             {
                 test: /\.s?css/,
                 exclude,
                 loader: 'style-loader!css-loader?module!sass-loader'
+            },
+            {
+                test: /\.(ttf|svg|eot|woff|woff2)$/,
+                exclude,
+                loader: 'file-loader',
+                options: {
+                    name: 'fonts/[name].[ext]?[md5:hash:hex:20]',
+                }
             }
         ]
     },

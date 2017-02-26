@@ -8,13 +8,15 @@ const path = require('path');
 
 const lib = [
     'react',
+    'react-bootstrap',
     'react-dom',
     'react-redux',
     'react-router',
     'react-router-redux',
-    'redux',
-    'twistysim'
+    'redux'
 ];
+
+const exclude = /(node_modules|libraries|dev|prod)/;
 
 module.exports = {
     entry: {
@@ -35,21 +37,32 @@ module.exports = {
         rules: [
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules|dev|prod)/,
+                exclude,
                 loader: 'babel-loader'
             },
             {
                 test: /\.png$/,
-                exclude: /(node_modules|dev|prod)/,
-                loader: 'file-loader?name=images/[name].[ext]?[md5:hash:hex:20]'
+                exclude,
+                loader: 'file-loader',
+                options: {
+                    name: 'images/[name].[ext]?[md5:hash:hex:20]',
+                }
             },
             {
                 test: /\.s?css/,
-                exclude: /(node_modules|dev|prod)/,
+                exclude,
                 loader: ExtractTextWebpackPlugin.extract({
                     fallbackLoader: 'style-loader',
                     loader: 'css-loader?module!sass-loader'
                 })
+            },
+            {
+                test: /\.(ttf|svg|eot|woff|woff2)$/,
+                exclude,
+                loader: 'file-loader',
+                options: {
+                    name: 'fonts/[name].[ext]?[md5:hash:hex:20]',
+                }
             }
         ]
     },
@@ -60,9 +73,7 @@ module.exports = {
         }),
         new CleanWebpackPlugin(
             [ 'prod' ],
-            {
-                verbose: false
-            }
+            { verbose: false }
         ),
         new webpack.EnvironmentPlugin(['NODE_ENV']),
         new FaviconsWebpackPlugin({

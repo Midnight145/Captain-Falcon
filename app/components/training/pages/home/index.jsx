@@ -15,5 +15,5 @@ export class HomePage extends React.Component {
             <Indicator set={set} subSet={subSet} />
             <button onClick={e => this.context.changePage('selections')}>Select Algorithms</button>
         </div>
-    }
+    };
 }

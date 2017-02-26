@@ -5,7 +5,7 @@ import { Training as Component } from 'components/training';
 import { updateSelection } from 'actions/selections';
 
 const mapStateToProps = (state) => {
-    const set = state.selections.set ? state.library[state.selections.set] : null;
+    const set = state.selections.set ? state.selections.set : null;
     return {
         set,
         sets: state.library,

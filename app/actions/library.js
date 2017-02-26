@@ -1,13 +1,4 @@
-import { ADD_SET, POPULATE_SETS } from 'actions';
-
-export const addSet = (set) => {
-    return {
-        type: ADD_SET,
-        payload: {
-            set
-        }
-    }
-};
+import { POPULATE_SETS } from 'actions';
 
 export const populateSets = (sets) => {
     return {

@@ -1,14 +1,16 @@
-import { ADD_SET, POPULATE_SETS } from 'actions';
+import { POPULATE_SETS } from 'actions';
 
-const initialState = [];
+const initialState = {};
 
 export const library = (state = initialState, action) => {
     const { type, payload } = action;
     switch (type) {
-        case ADD_SET:
-            return [].concat(state).push(payload.set);
         case POPULATE_SETS:
-            return state.concat(payload.sets);
+            const newState = {};
+            payload.sets.forEach(set => {
+                newState[set.id] = set;
+            });
+            return Object.assign({}, state, newState);
         default:
             return state;
     }
