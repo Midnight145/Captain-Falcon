@@ -1,8 +1,12 @@
 const Sequelize = require('sequelize');
 
-const initializeDatabase = (url) => {
-    const db = new Sequelize(url, {
-        dialect: 'mysql'
+const models = require('./models').models;
+
+const initializeDatabase = (url, options) => {
+    const db = new Sequelize(url, options);
+
+    models.forEach((model) => {
+        db.define(model.name, model.attributes);
     });
 
     return new Promise((resolve, reject) => {

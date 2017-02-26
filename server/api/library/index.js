@@ -1,26 +1,27 @@
 const express = require('express');
 const bodyparser = require('body-parser');
 
-const db = require('../../index');
+const library = (db) => {
+    const getAllSets = () => {
+        return db.models.sets.findAll({
+            attributes: ['id', 'shortName', 'longName']
+        });
+    };
 
-const getAllSets = () => {
-    return new Promise((resolve, reject) => {
-        db.models.set.findAll().then((data) => {
-            resolve(data);
-        })
+    const router = express.Router();
+
+    router.get('/', (req, res) => {
+        getAllSets().then((rows, fields) => {
+            res.json(rows);
+        }).catch((err) => {
+            res.sendStatus(500);
+            console.error(err);
+        });
     });
 
+    return router;
 };
 
-const library = express.Router();
-
-library.get('/', (req, res) => {
-    getAllSets().then((rows, fields) => {
-        res.json(rows);
-    }).catch((err) => {
-        res.sendStatus(500);
-        console.error(err);
-    });
-});
-
-module.exports = library;
+module.exports = {
+    library
+};
