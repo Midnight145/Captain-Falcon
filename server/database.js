@@ -3,8 +3,6 @@ const colors = require('colors/safe');
 
 const initializeModels = require('./models').initializeModels;
 
-
-
 const initializeDatabase = (url, options) => {
     const db = new Sequelize(url, options);
 
@@ -14,6 +12,8 @@ const initializeDatabase = (url, options) => {
         db.sync().then(() => {
             console.log(colors.cyan('Database Initialized'));
             resolve(db);
+        }).catch(err => {
+            reject(err);
         });
     });
 };

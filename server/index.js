@@ -6,7 +6,10 @@ const dbUrl = process.env.DATABASE_URL || 'mysql://root:rootpassword@localhost:3
 
 const dbOptions = {
     dialect: 'mysql',
-    logging: false
+    logging: false,
+    pool: {
+        maxConnections: 10
+    }
 };
 
 initializeDatabase(dbUrl, dbOptions).then((db) => {
