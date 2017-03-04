@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const gzipStatic = require('connect-gzip-static');
+const colors = require('colors/safe');
 
 const initializeRouter = (db) => {
 
@@ -30,10 +31,14 @@ const initializeRouter = (db) => {
 
     return () => {
         return new Promise((resolve, reject) => {
-            const instance = app.listen(process.env.PORT || 80, () => {
-                console.log('\x1b[36m', 'Server Initialized:');
-                console.log('\x1b[32m', instance.address(), '\x1b[0m');
-            });
+            try {
+                const instance = app.listen(process.env.PORT || 80, () => {
+                    console.log(colors.cyan('Router Initialized'));
+                    resolve(instance);
+                });
+            } catch(err) {
+                reject(err);
+            }
         });
     };
 

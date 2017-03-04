@@ -3,7 +3,7 @@ const bodyparser = require('body-parser');
 
 const library = (db) => {
     const getAllSets = () => {
-        return db.models.sets.findAll({
+        return db.models.algset.findAll({
             attributes: ['id', 'shortName', 'longName']
         });
     };
