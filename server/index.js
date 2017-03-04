@@ -8,7 +8,8 @@ const dbOptions = {
     dialect: 'mysql',
     logging: false,
     pool: {
-        maxConnections: 10
+        maxConnections: 10,
+        maxIdleTime: 120000
     }
 };
 
